@@ -4,7 +4,8 @@
   "description": "A wrapper for http server with auto port and nearby network discovery.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "node test"
+    "start": "node test/start.js",
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",

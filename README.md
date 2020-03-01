@@ -13,7 +13,7 @@ npm install --save casimir
 ### develop your server
 
 ```
-const casimir = require('casimir');
+const { HttpServer } = require('casimir');
 
 // define your handler
 function handleRequest(request, response) {
@@ -21,10 +21,14 @@ function handleRequest(request, response) {
 }
 
 // wrap handler with casimir
-const server = casimir
-  .createServer('server-name', handleRequest)
-  .listen();
+const server = new HttpServer(
+  { name: 'server-name' },
+  handleRequest
+).listen();
 
-// 239.0.0.0 ~ 239.255.255.255
+// output debug message
 console.log(server.name, server.port);
+setInterval(() => {
+  console.log(server.peerNodes);
+}, 3000);
 ```
